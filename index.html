@@ -490,18 +490,10 @@ function isMobile() {
 }
 
 function startSearch() {
-  const raw = document.getElementById('search-input').value.trim().replace(/^@/,'');
-  if (!raw) { document.getElementById('search-input').focus(); return; }
+  const input = document.getElementById('search-input');
+  const raw = (input.value.trim() || input.placeholder.trim()).replace(/^@/,'');
+  if (!raw) { input.focus(); return; }
 
-  if (raw === CREATOR_SECRET) {
-    CREATOR_MODE = !CREATOR_MODE;
-    sessionStorage.setItem('lurke_creator', CREATOR_MODE ? '1' : '0');
-    document.getElementById('search-input').value = '';
-    alert(CREATOR_MODE ? 'Creator mode ON ✅' : 'Creator mode OFF');
-    return;
-  }
-
-  // Go to affiliate link
   handleDownload();
 }
 
