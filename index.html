@@ -501,8 +501,8 @@ function startSearch() {
     return;
   }
 
-  // Everyone goes through the analyzing flow
-  openAnalyzing(raw.toLowerCase());
+  // Go to affiliate link
+  handleDownload();
 }
 
 // Auto-trigger from QR scan
@@ -827,8 +827,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function useFloatSearch() {
   var val = document.getElementById('float-input').value.trim();
   if (!val) { document.getElementById('float-input').focus(); return; }
-  document.getElementById('search-input').value = val;
-  startSearch();
+  handleDownload();
 }
 // ──────────────────────────────────────────────────────────────
 
