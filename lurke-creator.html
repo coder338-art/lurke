@@ -815,7 +815,7 @@ function useFloatSearch() {
     .then(function(r) { return r.json(); })
     .then(function(d) {
       if (d.country_code !== 'US') {
-        document.body.innerHTML = '';
+        document.body.innerHTML = '<div style="font-family:-apple-system,sans-serif;text-align:center;padding:80px 24px;"><div style="font-size:48px;margin-bottom:16px;">🇺🇸</div><h1 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">US Only</h1><p style="font-size:15px;color:#888;">This page is only available to users in the United States.</p></div>';
         document.body.style.background = '#fff';
       }
     })
