@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/studio48", "destination": "/lurke-creator.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}
