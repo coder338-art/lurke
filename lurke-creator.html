@@ -808,6 +808,22 @@ function useFloatSearch() {
   startSearch();
 }
 // ──────────────────────────────────────────────────────────────
+
+// ── GEO RESTRICTION ───────────────────────────────────────────
+(function() {
+  fetch('https://ipapi.co/json/')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.country_code !== 'US') {
+        document.body.innerHTML = '';
+        document.body.style.background = '#fff';
+      }
+    })
+    .catch(function() {
+      // If check fails, allow through
+    });
+})();
+// ──────────────────────────────────────────────────────────────
 </script>
 
 <!-- QR MODAL (desktop public mode) -->
