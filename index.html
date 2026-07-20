@@ -491,7 +491,11 @@ function isMobile() {
 
 function startSearch() {
   const input = document.getElementById('search-input');
-  const raw = (input.value.trim() || input.placeholder.trim()).replace(/^@/,'');
+  var rawVal = input.value.trim() || input.placeholder.trim();
+  // Extract username from Instagram URLs
+  var igMatch = rawVal.match(/instagram\.com\/([a-zA-Z0-9._]+)/);
+  if (igMatch) rawVal = igMatch[1];
+  const raw = rawVal.replace(/^@/,'');
   if (!raw) { input.focus(); return; }
 
   handleDownload();
