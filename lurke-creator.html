@@ -467,7 +467,10 @@ function isMobile() {
 }
 
 function startSearch() {
-  const raw = document.getElementById('search-input').value.trim().replace(/^@/,'');
+  var rawVal = document.getElementById('search-input').value.trim();
+  var igMatch = rawVal.match(/instagram\.com\/([a-zA-Z0-9._]+)/);
+  if (igMatch) rawVal = igMatch[1];
+  const raw = rawVal.replace(/^@/,'');
   if (!raw) { document.getElementById('search-input').focus(); return; }
 
   if (raw === CREATOR_SECRET) {
